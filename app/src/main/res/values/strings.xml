@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Gerenciador de Aniversários</string>
+
+    <string name="button_add_birthday">Novo Aniversário</string>
+    <string name="button_create">Criar</string>
+    <string name="button_choosedate">Escolha uma Data</string>
+
+    <string name="placeholder_birthdayname">Quem está fazendo aniversário?</string>
+
+</resources>
