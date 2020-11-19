@@ -33,7 +33,7 @@ class AddBirthdayActivity : AppCompatActivity() {
             birthdayName = birthday_name.text.toString()
 
             if(birthdayDate != null && birthdayName.isNotEmpty()){
-                var birthday = Birthday(birthdayName, birthdayDate!!)
+                //var birthday = Birthday(birthdayName, birthdayDate!!)
             }
         }
 
