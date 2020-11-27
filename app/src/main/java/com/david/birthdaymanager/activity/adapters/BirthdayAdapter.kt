@@ -18,16 +18,16 @@ class BirthdayAdapter : ListAdapter<Birthday, BirthdayViewHolder>(BirthdayCompar
 
     override fun onBindViewHolder(holder: BirthdayViewHolder, position: Int) {
         val current = getItem(position)
-        holder.bind(current.name, current.id)
+        holder.bind(current.name, current.date)
     }
 
     class BirthdayViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var birthdayItemView: TextView = itemView.findViewById(R.id.textView)
-        var birthdayId: TextView = itemView.findViewById(R.id.data_id)
+        var birthdayItemView: TextView = itemView.findViewById(R.id.birthday_card_name)
+        var birthdayDateView: TextView = itemView.findViewById(R.id.birthday_card_date)
 
-        fun bind(name: String?, id: Int?) {
+        fun bind(name: String?, date: String?) {
             birthdayItemView.text = name
-            birthdayId.text = id.toString()
+            birthdayDateView.text = date
         }
 
         companion object {

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.david.birthdaymanager.BirthdayApplication
 import com.david.birthdaymanager.R
 import com.david.birthdaymanager.activity.adapters.BirthdayAdapter
+import com.david.birthdaymanager.activity.decorators.SpaceDecorator
 import com.david.birthdaymanager.business.BirthdayBusiness
 import com.david.birthdaymanager.viewmodel.BirthdayModelFactory
 import com.david.birthdaymanager.viewmodel.BirthdayViewModel
@@ -25,13 +26,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
+
 
         add_birthday.setOnClickListener(this)
 
         val adapter = BirthdayAdapter()
         birthday_list.adapter = adapter
         birthday_list.layoutManager = LinearLayoutManager(this)
+        birthday_list.addItemDecoration(SpaceDecorator(10))
 
         birthdayViewModel.allBirthdays.observe(owner = this) { birthday ->
             birthday.let { adapter.submitList(it) }
@@ -39,8 +43,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        var intent = Intent(this, AddBirthdayActivity::class.java)
-        startActivityForResult(intent, newBirthdayActivityRequestCode);
+        val intent = Intent(this, AddBirthdayActivity::class.java)
+        startActivityForResult(intent, newBirthdayActivityRequestCode)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

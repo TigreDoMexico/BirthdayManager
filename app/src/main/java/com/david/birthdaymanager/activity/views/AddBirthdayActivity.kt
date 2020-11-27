@@ -14,9 +14,9 @@ import kotlinx.android.synthetic.main.activity_add_birthday.*
 import java.util.*
 
 class AddBirthdayActivity : AppCompatActivity() {
-    var birthdayName: String = "";
-    var birthdayDate: Calendar? = null;
-    var birthdayValue: String = "";
+    var birthdayName: String = ""
+    var birthdayDate: Calendar? = null
+    var birthdayValue: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,9 +58,9 @@ class AddBirthdayActivity : AppCompatActivity() {
         val day = c.get(Calendar.DAY_OF_MONTH)
 
         //Date Picker Dialog
-        val datePickerDialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{view, year, monthOfYear, dayOfMonth ->
+        val datePickerDialog = DatePickerDialog(this, { view, year, monthOfYear, dayOfMonth ->
             birthdayDate = GregorianCalendar(year, monthOfYear, dayOfMonth)
-            birthdayValue = "$monthOfYear/$year"
+            birthdayValue = "$dayOfMonth/$monthOfYear"
 
             date_picked.text = birthdayValue
         }, year, month, day)
