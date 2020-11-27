@@ -6,7 +6,7 @@ import com.david.birthdaymanager.data.Birthday
 import kotlinx.coroutines.flow.Flow
 
 class BirthdayRepository(private val birthdayDao: BirthdayDao){
-    val allowBirthdays: Flow<List<Birthday>> = birthdayDao.getAll()
+    val allBirthdays: Flow<List<Birthday>> = birthdayDao.getAll()
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread

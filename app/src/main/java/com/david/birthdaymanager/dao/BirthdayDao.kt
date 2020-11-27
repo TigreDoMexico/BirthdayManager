@@ -21,4 +21,7 @@ interface BirthdayDao {
 
     @Delete
     fun delete(birthday: Birthday)
+
+    @Query("DELETE FROM birthday")
+    fun deleteAll()
 }
