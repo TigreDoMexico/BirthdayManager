@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.views.AddBirthdayActivity"></activity>
-        <activity android:name=".activity.views.MainActivity">
+        <activity android:name=".activity.views.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

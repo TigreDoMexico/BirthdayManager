@@ -29,38 +29,13 @@ abstract class AppDatabase : RoomDatabase() {
                         context.applicationContext,
                         AppDatabase::class.java,
                         "birthday_database"
-                    ).addCallback(BirthdayDatabaseCallback(scope)).build()
+                    ).build()
 
                 INSTANCE = instance
 
-                instance
+                return instance
             }
 
         }
     }
-
-    private class BirthdayDatabaseCallback(
-        private val scope: CoroutineScope
-    ) : RoomDatabase.Callback() {
-
-        override fun onCreate(db: SupportSQLiteDatabase) {
-            super.onCreate(db)
-            INSTANCE?.let {database ->
-                scope.launch {
-                    populateDatabase(database.birthdayDao())
-                }
-            }
-        }
-
-        suspend fun populateDatabase(birthdayDao: BirthdayDao) {
-            birthdayDao.deleteAll()
-
-            var birthday = Birthday(name = "Aniversário 1", date = "11/10");
-            birthdayDao.insert(birthday)
-            birthday = Birthday(name = "Aniversário 2", date = "11/10");
-            birthdayDao.insert(birthday)
-        }
-
-    }
-
 }

@@ -34,6 +34,7 @@ class BirthdayAdapter : ListAdapter<Birthday, BirthdayViewHolder>(BirthdayCompar
             fun create(parent: ViewGroup): BirthdayViewHolder {
                 val view: View = LayoutInflater.from(parent.context)
                     .inflate(R.layout.recycleview_item, parent, false)
+
                 return BirthdayViewHolder(view)
             }
         }
@@ -41,11 +42,11 @@ class BirthdayAdapter : ListAdapter<Birthday, BirthdayViewHolder>(BirthdayCompar
 
     class BirthdayComparator : DiffUtil.ItemCallback<Birthday>() {
         override fun areItemsTheSame(oldItem: Birthday, newItem: Birthday): Boolean {
-            return oldItem === newItem
+            return oldItem.id === newItem.id
         }
 
         override fun areContentsTheSame(oldItem: Birthday, newItem: Birthday): Boolean {
-            return oldItem.id == newItem.id
+            return oldItem.name == newItem.name || oldItem.date == newItem.date
         }
     }
 }

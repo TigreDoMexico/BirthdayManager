@@ -8,7 +8,7 @@
 
     <Button
         android:id="@+id/create_birthday"
-        style="@style/Add_Button"
+        style="@style/ActionButton.Add_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_create"
@@ -45,7 +45,7 @@
 
     <ImageButton
         android:id="@+id/date_picker"
-        style="@style/DatePicker_Button"
+        style="@style/ActionButton.DatePicker_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="46dp"
