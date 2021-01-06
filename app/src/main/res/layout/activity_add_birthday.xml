@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/elementColor"
     tools:context=".activity.views.AddBirthdayActivity">
 
     <Button
@@ -11,35 +12,46 @@
         style="@style/ActionButton.Add_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
         android:text="@string/button_create"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/birthday_name"
-        android:layout_width="316dp"
-        android:layout_height="67dp"
-        android:ems="10"
-        android:hint="@string/placeholder_birthdayname"
+        style="@android:style/Widget.DeviceDefault.AutoCompleteTextView"
+        android:layout_width="360dp"
+        android:layout_height="62dp"
+        android:autofillHints=""
+        android:background="@drawable/white_rounded_corners"
+        android:hint="@string/birthday_person_name"
         android:inputType="textPersonName"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:singleLine="true"
+        android:textColor="@color/secondaryColor"
+        android:textColorHint="@color/primaryColor"
         app:layout_constraintBottom_toTopOf="@+id/create_birthday"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.459" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/date_picked"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="60dp"
-        android:text="Escolha uma data"
+        android:layout_width="357dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="92dp"
+        android:background="@drawable/white_rounded_corners"
+        android:paddingStart="10sp"
+        android:paddingTop="18sp"
+        android:paddingEnd="10sp"
+        android:text="@string/choose_a_date"
+        android:textColor="@color/primaryColor"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/birthday_name" />
 
@@ -48,10 +60,51 @@
         style="@style/ActionButton.DatePicker_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
-        android:layout_marginEnd="55dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginEnd="45dp"
+        android:backgroundTint="@color/actionColor"
+        android:contentDescription="@string/choose_a_date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/birthday_name"
         app:srcCompat="@drawable/ic_datepicker_white" />
+
+    <ImageView
+        android:id="@+id/cake_image"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/image_screen_add_birthday"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_cake_red" />
+
+    <TextView
+        android:id="@+id/label_who_is"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/placeholder_birthdayname"
+        android:textColor="@color/secondaryColor"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/birthday_name"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/label_when_is"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/label_whenis_the_birthday"
+        android:textColor="@color/secondaryColor"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/date_picked"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

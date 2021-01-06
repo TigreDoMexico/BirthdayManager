@@ -6,5 +6,9 @@
     <string name="button_choosedate">Escolha uma Data</string>
 
     <string name="placeholder_birthdayname">Quem está fazendo aniversário?</string>
+    <string name="choose_a_date">Escolha uma data</string>
+    <string name="image_screen_add_birthday">tela de aniversário</string>
+    <string name="birthday_person_name">nome do aniversariante</string>
+    <string name="label_whenis_the_birthday">Quando é o aniversário?</string>
 
 </resources>

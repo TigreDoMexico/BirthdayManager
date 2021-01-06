@@ -34,6 +34,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val adapter = createBirthdayAdapter()
 
+
+
         birthdayViewModel.allBirthdays.observe(owner = this) { birthday ->
             birthday.let { adapter.submitList(it) }
         }

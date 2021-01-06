@@ -11,6 +11,7 @@ import com.david.birthdaymanager.R
 import com.david.birthdaymanager.activity.constants.ACTIVITY_REPLY
 import com.david.birthdaymanager.business.BirthdayBusiness
 import kotlinx.android.synthetic.main.activity_add_birthday.*
+import java.text.SimpleDateFormat
 import java.util.*
 
 class AddBirthdayActivity : AppCompatActivity() {
@@ -64,6 +65,9 @@ class AddBirthdayActivity : AppCompatActivity() {
         val datePickerDialog = DatePickerDialog(this, { view, year, monthOfYear, dayOfMonth ->
             birthdayDate = GregorianCalendar(year, monthOfYear, dayOfMonth)
             birthdayValue = "$dayOfMonth/${monthOfYear + 1}"
+
+            //var format = SimpleDateFormat("dd/MM/yyyy")
+            //val dateFomat = format.format(birthdayDate);
 
             date_picked.text = birthdayValue
         }, year, month, day)

@@ -10,24 +10,34 @@ import androidx.recyclerview.widget.ListAdapter
 import com.david.birthdaymanager.R
 import com.david.birthdaymanager.activity.adapters.BirthdayAdapter.*
 import com.david.birthdaymanager.data.Birthday
+import kotlinx.android.synthetic.main.recycleview_item.view.*
 
 class BirthdayAdapter : ListAdapter<Birthday, BirthdayViewHolder>(BirthdayComparator()) {
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BirthdayViewHolder {
         return BirthdayViewHolder.create(parent)
     }
 
     override fun onBindViewHolder(holder: BirthdayViewHolder, position: Int) {
         val current = getItem(position)
-        holder.bind(current.name, current.date)
+
+        if(current.id != null) holder.bind(current.name, current.date, current.id)
     }
 
     class BirthdayViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var birthdayItemView: TextView = itemView.findViewById(R.id.birthday_card_name)
-        var birthdayDateView: TextView = itemView.findViewById(R.id.birthday_card_date)
+        var onItemClick: ((Int) -> Unit)? = null
 
-        fun bind(name: String?, date: String?) {
+        private var birthdayItemView: TextView = itemView.birthday_card_name
+        private var birthdayDateView: TextView = itemView.birthday_card_date
+
+        fun bind(name: String?, date: String?, id: Int) {
             birthdayItemView.text = name
             birthdayDateView.text = date
+
+            itemView.setOnClickListener{
+                onItemClick?.invoke(id)
+            }
         }
 
         companion object {
